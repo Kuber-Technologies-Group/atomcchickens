@@ -102,7 +102,7 @@ const Blog = () => {
                 {posts.filter(post => post.featured).map(post => (
                   <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="h-64 md:h-full">
+                      <div className="h-48 md:h-48">
                         <img 
                           src={post.image} 
                           alt={post.title}
@@ -111,7 +111,7 @@ const Blog = () => {
                       </div>
                       <div className="p-6">
                         <h3 className="font-playfair text-2xl font-bold text-charcoal mb-4">{post.title}</h3>
-                        <p className="text-charcoal/80 mb-4 font-inter">{post.excerpt}</p>
+                        <p className="text-charcoal/80 mb-4 font-inter line-clamp-2">{post.excerpt}</p>
                         <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
                           <span className="flex items-center gap-1">
                             <CalendarDays className="w-4 h-4" />
@@ -150,7 +150,7 @@ const Blog = () => {
                       </div>
                       <CardContent className="p-6">
                         <h3 className="font-playfair text-xl font-bold text-charcoal mb-4">{post.title}</h3>
-                        <p className="text-charcoal/80 mb-4 font-inter">{post.excerpt}</p>
+                        <p className="text-charcoal/80 mb-4 font-inter line-clamp-2">{post.excerpt}</p>
                         <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
                           <span className="flex items-center gap-1">
                             <CalendarDays className="w-4 h-4" />
