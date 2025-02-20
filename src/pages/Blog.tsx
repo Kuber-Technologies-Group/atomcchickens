@@ -101,12 +101,12 @@ const Blog = () => {
                 <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">Featured Post</h2>
                 {posts.filter(post => post.featured).map(post => (
                   <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="h-48 md:h-48">
+                    <div className="grid md:grid-cols-2">
+                      <div className="relative h-full min-h-[300px]">
                         <img 
                           src={post.image} 
                           alt={post.title}
-                          className="w-full h-full object-cover"
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
                       </div>
                       <div className="p-6">
