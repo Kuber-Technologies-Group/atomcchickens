@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -7,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { BookOpen, MessageSquare, ThumbsUp, ThumbsDown, Clock, CalendarDays } from "lucide-react";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 // Mock data for posts
 const posts = [
@@ -265,6 +265,8 @@ const Blog = () => {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

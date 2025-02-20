@@ -1,9 +1,9 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Egg, Sprout, Dna, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const services = [
   {
@@ -117,6 +117,8 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
@@ -88,6 +88,8 @@ const About = () => {
           </Button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

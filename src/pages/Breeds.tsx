@@ -1,6 +1,6 @@
-
 import Navigation from "@/components/Navigation";
 import BreedCard from "@/components/BreedCard";
+import Footer from "@/components/Footer";
 
 const breeds = [
   {
@@ -71,6 +71,8 @@ const Breeds = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
