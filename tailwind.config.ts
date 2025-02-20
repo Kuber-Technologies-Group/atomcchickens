@@ -25,22 +25,20 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				cream: '#FEF7E4',
-				warmBrown: '#8B7355',
-				mutedGold: '#D4AF37',
-				charcoal: '#2C3E50',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#FF8C00', // Bright orange from logo
+					hover: '#E67E00',
+					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#FF4136', // Red from logo
+					hover: '#E63A30',
+					foreground: '#FFFFFF'
 				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
+				cream: '#FFF8E7',
+				warmBrown: '#8B4513',
+				mutedGold: '#FFB347',
+				charcoal: '#333333',
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'

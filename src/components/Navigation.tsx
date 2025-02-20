@@ -29,7 +29,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="font-playfair text-2xl font-bold text-charcoal">
+            <Link to="/" className="font-playfair text-2xl font-bold text-primary">
               AtomcChickens
             </Link>
           </div>
@@ -41,7 +41,7 @@ const Navigation = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="font-inter text-charcoal/80 hover:text-charcoal transition-colors duration-200"
+                  className="font-inter text-charcoal/80 hover:text-primary transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -49,7 +49,7 @@ const Navigation = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-inter text-charcoal/80 hover:text-charcoal transition-colors duration-200"
+                  className="font-inter text-charcoal/80 hover:text-primary transition-colors duration-200"
                 >
                   {link.name}
                 </a>
@@ -61,7 +61,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-charcoal hover:text-charcoal/80 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-mutedGold"
+              className="inline-flex items-center justify-center p-2 rounded-md text-charcoal hover:text-primary hover:bg-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-mutedGold"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -77,7 +77,7 @@ const Navigation = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="block px-3 py-2 text-charcoal/80 hover:text-charcoal hover:bg-gray-50 font-inter"
+                    className="block px-3 py-2 text-charcoal/80 hover:text-primary hover:bg-cream font-inter"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -86,7 +86,7 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="block px-3 py-2 text-charcoal/80 hover:text-charcoal hover:bg-gray-50 font-inter"
+                    className="block px-3 py-2 text-charcoal/80 hover:text-primary hover:bg-cream font-inter"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
