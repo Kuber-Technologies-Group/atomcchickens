@@ -40,7 +40,7 @@ const Contact = () => {
 
       {/* Hero Section */}
       <div className="relative pt-32 bg-cream">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516467508483-a7212febe31a')] bg-cover bg-center bg-no-repeat opacity-20" />
+        <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2023/05/03/09/16/rooster-7967058_1280.jpg')] bg-cover bg-center bg-no-repeat opacity-20" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-6">
@@ -62,7 +62,7 @@ const Contact = () => {
               <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">
                 Get in Touch
               </h2>
-              
+
               <div className="grid gap-8">
                 <Card className="p-6">
                   <div className="flex items-start gap-4">
@@ -85,7 +85,7 @@ const Contact = () => {
                       <h3 className="font-playfair text-lg font-semibold text-charcoal">
                         Email
                       </h3>
-                      <a 
+                      <a
                         href="mailto:info@atomcchickens.com"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
@@ -102,11 +102,23 @@ const Contact = () => {
                       <h3 className="font-playfair text-lg font-semibold text-charcoal">
                         Phone
                       </h3>
-                      <a 
-                        href="tel:+263000000000"
+                      <a
+                        href="tel:+263772664960"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
-                        +263 00 000 0000
+                        +263 772 664 960
+                      </a> <br />
+                      <a
+                        href="tel:+263779146262"
+                        className="text-charcoal/80 hover:text-charcoal font-inter"
+                      >
+                        +263 779 146 262
+                      </a> <br />
+                      <a
+                        href="tel:+2630292250443"
+                        className="text-charcoal/80 hover:text-charcoal font-inter"
+                      >
+                       +263 029 225 0443
                       </a>
                     </div>
                   </div>
@@ -119,7 +131,7 @@ const Contact = () => {
               <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">
                 Send us a Message
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Input
@@ -162,7 +174,7 @@ const Contact = () => {
                     className="min-h-[150px] bg-white"
                   />
                 </div>
-                <Button 
+                <Button
                   type="submit"
                   className="w-full bg-warmBrown hover:bg-warmBrown/90 text-white font-inter"
                 >

@@ -67,7 +67,7 @@ const Index = () => {
             <Card className="overflow-hidden hover:shadow-lg transition-all">
               <div className="h-48">
                 <img 
-                  src="https://images.unsplash.com/photo-1465379944081-7f47de8d74ac"
+                  src="https://cdn.pixabay.com/photo/2015/11/20/12/54/bird-1053045_1280.jpg"
                   alt="Orpingtons"
                   className="w-full h-full object-cover"
                 />
@@ -80,7 +80,7 @@ const Index = () => {
             <Card className="overflow-hidden hover:shadow-lg transition-all">
               <div className="h-48">
                 <img 
-                  src="https://images.unsplash.com/photo-1438565434616-3ef039228b15"
+                  src="https://cdn.pixabay.com/photo/2019/03/10/17/38/hen-brahma-4046755_1280.jpg"
                   alt="Columbian Brahmas"
                   className="w-full h-full object-cover"
                 />
@@ -93,7 +93,7 @@ const Index = () => {
             <Card className="overflow-hidden hover:shadow-lg transition-all">
               <div className="h-48">
                 <img 
-                  src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d"
+                  src="https://cdn.pixabay.com/photo/2017/09/08/19/57/hen-2729941_1280.jpg"
                   alt="Sussex"
                   className="w-full h-full object-cover"
                 />

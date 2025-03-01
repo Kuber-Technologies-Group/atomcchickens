@@ -10,7 +10,7 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen bg-cream">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517022812141-23620dba5c23')] bg-cover bg-center bg-no-repeat opacity-20" />
+      <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2022/04/03/19/22/bird-7109752_1280.jpg')] bg-cover bg-center bg-no-repeat opacity-20" />
       
       <div className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pb-32 min-h-screen flex flex-col justify-center">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
