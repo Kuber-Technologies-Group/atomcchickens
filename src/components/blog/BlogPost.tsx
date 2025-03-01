@@ -17,6 +17,7 @@ interface BlogPostProps {
     author: string;
     authorId: string;
     createdAt: { seconds: number };
+    imageUrl?: string;
     likes?: number;
     dislikes?: number;
     comments?: Array<{ id: number; author: string; content: string; date: string }>;
@@ -70,6 +71,16 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
 
   return (
     <Card className="mb-6 overflow-hidden hover:shadow-md transition-shadow duration-300">
+      {post.imageUrl && (
+        <div className="w-full h-[300px] overflow-hidden">
+          <img 
+            src={post.imageUrl} 
+            alt={post.title} 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      
       <CardContent className="p-6">
         <h3 className="font-playfair text-2xl font-bold text-charcoal mb-2">{post.title}</h3>
         

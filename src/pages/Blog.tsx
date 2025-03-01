@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { BookOpen, Clock, CalendarDays, PlusCircle } from "lucide-react";
+import { BookOpen, Clock, CalendarDays, PlusCircle, X } from "lucide-react";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
 import { LoginForm, SignupForm, UserProfile } from "@/components/blog/AuthForms";
@@ -79,32 +79,23 @@ const Blog = () => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* User Authentication Section */}
+          {/* User Authentication Section - Removed login button from here */}
           <div className="mb-12">
-            {currentUser ? (
+            {currentUser && (
               <div className="mb-8">
                 <UserProfile />
-              </div>
-            ) : (
-              <div className="mb-8">
-                <Button 
-                  onClick={() => setShowAuthForm(true)} 
-                  className="bg-warmBrown hover:bg-warmBrown/90 text-white"
-                >
-                  Login to write posts
-                </Button>
               </div>
             )}
 
             {showAuthForm && !currentUser && (
               <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                <div className="bg-white rounded-lg max-w-md w-full p-6">
+                <div className="bg-white rounded-lg max-w-md w-full p-6 relative">
                   <Button 
                     variant="ghost" 
                     className="absolute top-2 right-2"
                     onClick={() => setShowAuthForm(false)}
                   >
-                    ✕
+                    <X className="h-4 w-4" />
                   </Button>
                   {isLogin ? (
                     <LoginForm onToggle={() => setIsLogin(false)} />
@@ -132,13 +123,13 @@ const Blog = () => {
           {/* Post Form Modal */}
           {showPostForm && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-              <div className="bg-white rounded-lg max-w-3xl w-full p-6">
+              <div className="bg-white rounded-lg max-w-3xl w-full p-6 relative">
                 <Button 
                   variant="ghost" 
                   className="absolute top-2 right-2"
                   onClick={handleCloseForm}
                 >
-                  ✕
+                  <X className="h-4 w-4" />
                 </Button>
                 <BlogPostForm 
                   editMode={!!editingPost} 
@@ -167,15 +158,15 @@ const Blog = () => {
             <>
               {posts.length > 0 ? (
                 <div className="space-y-8">
-                  {/* Featured Post (first post) */}
+                  {/* Featured Post (first post with isFeatured flag or first post) */}
                   {posts.length > 0 && (
                     <section className="mb-16">
                       <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">Featured Post</h2>
                       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                        <div className="grid md:grid-cols-2">
+                        <div className="grid md:grid-cols-2 h-full">
                           <div className="relative h-full">
                             <img 
-                              src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7" 
+                              src={posts[0].imageUrl || "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7"} 
                               alt={posts[0].title}
                               className="w-full h-full object-cover"
                             />
@@ -213,7 +204,7 @@ const Blog = () => {
                         <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                           <div className="h-48">
                             <img 
-                              src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7" 
+                              src={post.imageUrl || "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7"} 
                               alt={post.title}
                               className="w-full h-full object-cover"
                             />

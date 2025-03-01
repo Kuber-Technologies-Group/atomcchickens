@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
+import { X } from "lucide-react";
 
 export const LoginForm = ({ onToggle }: { onToggle: () => void }) => {
   const [email, setEmail] = useState("");
