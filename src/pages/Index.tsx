@@ -1,9 +1,10 @@
+
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Egg, Book, Dna, MessageSquare } from "lucide-react";
+import { Egg, Book, Dna, MessageSquare, Heart, Star } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,6 +12,56 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
+
+      {/* About Us Section */}
+      <section id="about-us" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="font-playfair text-sm font-semibold text-warmBrown mb-2">ABOUT US</div>
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-6">Pioneering Indigenous Poultry Breeding</h2>
+              <p className="text-lg text-charcoal/80 mb-6 font-inter">
+                AtomC_hickens is a premier Indigenous Poultry Company based in Bulawayo, Zimbabwe, 
+                specializing in the breeding and supply of exceptional roadrunner chickens since 2014.
+              </p>
+              <p className="text-lg text-charcoal/80 mb-8 font-inter">
+                Our passion for quality poultry breeding has established us as leaders in the industry, 
+                combining traditional wisdom with modern breeding techniques.
+              </p>
+              <div className="flex gap-4">
+                <div className="flex items-center">
+                  <Heart className="text-warmBrown w-5 h-5 mr-2" />
+                  <span className="font-semibold">Honest</span>
+                </div>
+                <div className="flex items-center">
+                  <Star className="text-warmBrown w-5 h-5 mr-2" />
+                  <span className="font-semibold">Professional</span>
+                </div>
+              </div>
+              <div className="mt-8">
+                <Link to="/about">
+                  <Button className="bg-warmBrown hover:bg-warmBrown/90 text-white">
+                    Learn More About Us
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 relative">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <img 
+                  src="https://cdn.pixabay.com/photo/2016/11/29/05/25/chicken-1867521_1280.jpg" 
+                  alt="AtomC_hickens farm" 
+                  className="w-full h-auto object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-cream p-4 rounded-lg shadow-lg hidden md:block">
+                <div className="font-bold text-3xl text-warmBrown">10+</div>
+                <div className="text-charcoal text-sm">Years of Excellence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Brief Section */}
       <section className="py-24 bg-cream">
