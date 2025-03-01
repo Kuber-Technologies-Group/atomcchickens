@@ -79,7 +79,7 @@ const Blog = () => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* User Authentication Section */}
+          {/* User Authentication Section - Removed login button from here */}
           <div className="mb-12">
             {currentUser && (
               <div className="mb-8">
@@ -158,40 +158,38 @@ const Blog = () => {
             <>
               {posts.length > 0 ? (
                 <div className="space-y-8">
-                  {/* Featured Post - Modified to have consistent height */}
+                  {/* Featured Post (first post with isFeatured flag or first post) */}
                   {posts.length > 0 && (
                     <section className="mb-16">
                       <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">Featured Post</h2>
                       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         <div className="grid md:grid-cols-2 h-full">
-                          <div className="h-48 md:h-auto">
+                          <div className="relative h-full">
                             <img 
                               src={posts[0].imageUrl || "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7"} 
                               alt={posts[0].title}
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <div className="p-6 flex flex-col">
+                          <div className="p-6">
                             <h3 className="font-playfair text-2xl font-bold text-charcoal mb-4">{posts[0].title}</h3>
-                            <p className="text-charcoal/80 mb-4 font-inter line-clamp-2 flex-grow">{posts[0].content}</p>
-                            <div className="mt-auto">
-                              <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
-                                <span>By {posts[0].author}</span>
-                                <span className="flex items-center gap-1">
-                                  <Clock className="w-4 h-4" />
-                                  {posts[0].createdAt?.seconds
-                                    ? new Date(posts[0].createdAt.seconds * 1000).toLocaleDateString()
-                                    : 'recent'}
-                                </span>
-                              </div>
-                              <Button 
-                                onClick={() => setSelectedPost(posts[0])}
-                                className="bg-warmBrown hover:bg-warmBrown/90 text-white"
-                              >
-                                <BookOpen className="w-4 h-4 mr-2" />
-                                Read More
-                              </Button>
+                            <p className="text-charcoal/80 mb-4 font-inter line-clamp-2">{posts[0].content}</p>
+                            <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
+                              <span>By {posts[0].author}</span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                {posts[0].createdAt?.seconds
+                                  ? new Date(posts[0].createdAt.seconds * 1000).toLocaleDateString()
+                                  : 'recent'}
+                              </span>
                             </div>
+                            <Button 
+                              onClick={() => setSelectedPost(posts[0])}
+                              className="bg-warmBrown hover:bg-warmBrown/90 text-white"
+                            >
+                              <BookOpen className="w-4 h-4 mr-2" />
+                              Read More
+                            </Button>
                           </div>
                         </div>
                       </Card>
@@ -203,7 +201,7 @@ const Blog = () => {
                     <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">Latest Posts</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                       {posts.slice(1).map(post => (
-                        <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                        <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                           <div className="h-48">
                             <img 
                               src={post.imageUrl || "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7"} 
@@ -211,27 +209,25 @@ const Blog = () => {
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <CardContent className="p-6 flex flex-col flex-grow">
+                          <CardContent className="p-6">
                             <h3 className="font-playfair text-xl font-bold text-charcoal mb-4">{post.title}</h3>
-                            <p className="text-charcoal/80 mb-4 font-inter line-clamp-2 flex-grow">{post.content}</p>
-                            <div className="mt-auto">
-                              <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
-                                <span>By {post.author}</span>
-                                <span className="flex items-center gap-1">
-                                  <CalendarDays className="w-4 h-4" />
-                                  {post.createdAt?.seconds
-                                    ? new Date(post.createdAt.seconds * 1000).toLocaleDateString()
-                                    : 'recent'}
-                                </span>
-                              </div>
-                              <Button 
-                                onClick={() => setSelectedPost(post)}
-                                className="bg-warmBrown hover:bg-warmBrown/90 text-white"
-                              >
-                                <BookOpen className="w-4 h-4 mr-2" />
-                                Read More
-                              </Button>
+                            <p className="text-charcoal/80 mb-4 font-inter line-clamp-2">{post.content}</p>
+                            <div className="flex items-center gap-4 text-sm text-charcoal/60 mb-6">
+                              <span>By {post.author}</span>
+                              <span className="flex items-center gap-1">
+                                <CalendarDays className="w-4 h-4" />
+                                {post.createdAt?.seconds
+                                  ? new Date(post.createdAt.seconds * 1000).toLocaleDateString()
+                                  : 'recent'}
+                              </span>
                             </div>
+                            <Button 
+                              onClick={() => setSelectedPost(post)}
+                              className="bg-warmBrown hover:bg-warmBrown/90 text-white"
+                            >
+                              <BookOpen className="w-4 h-4 mr-2" />
+                              Read More
+                            </Button>
                           </CardContent>
                         </Card>
                       ))}
