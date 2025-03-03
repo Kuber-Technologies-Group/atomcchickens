@@ -1,14 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { BookOpen, Clock, CalendarDays, PlusCircle, X } from "lucide-react";
+import { BookOpen, Clock, CalendarDays, PlusCircle, X, Loader2 } from "lucide-react";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
-import { UserProfile } from "@/components/blog/AuthForms";
 import BlogPostForm from "@/components/blog/BlogPostForm";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
@@ -36,6 +34,7 @@ const Blog = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [showPostForm, setShowPostForm] = useState(false);
   const [editingPost, setEditingPost] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -52,6 +51,7 @@ const Blog = () => {
           ...doc.data()
         }));
         setPosts(fetchedPosts);
+        setLoading(false);
       }, (error) => {
         console.error("Error fetching posts:", error);
         toast({
@@ -59,11 +59,13 @@ const Blog = () => {
           description: "Failed to load blog posts",
           variant: "destructive",
         });
+        setLoading(false);
       });
       
       return () => unsubscribe();
     } catch (error) {
       console.error("Error setting up posts listener:", error);
+      setLoading(false);
     }
   }, [toast]);
 
@@ -102,15 +104,6 @@ const Blog = () => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* User Authentication Section */}
-          <div className="mb-12">
-            {currentUser && (
-              <div className="mb-8">
-                <UserProfile />
-              </div>
-            )}
-          </div>
-
           {/* Create Post Button for authenticated users */}
           {currentUser && (
             <div className="mb-8">
@@ -145,7 +138,12 @@ const Blog = () => {
           )}
 
           {/* Blog Posts Grid */}
-          {posts.length > 0 ? (
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-24">
+              <Loader2 className="h-12 w-12 animate-spin text-warmBrown mb-4" />
+              <p className="text-lg text-charcoal/80">Loading posts...</p>
+            </div>
+          ) : posts.length > 0 ? (
             <div className="space-y-8">
               {/* Featured Post */}
               {posts.length > 0 && (
