@@ -33,7 +33,7 @@ const Footer = () => {
                   onClick={handleOpenAuthForm}
                   className="mt-4 bg-warmBrown hover:bg-warmBrown/90 text-white"
                 >
-                  Login to write posts
+                  Login
                 </Button>
               )}
             </div>
