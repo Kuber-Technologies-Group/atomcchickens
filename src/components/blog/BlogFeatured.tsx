@@ -17,7 +17,7 @@ const BlogFeatured: React.FC<BlogFeaturedProps> = ({ post, onReadMore }) => {
       <h2 className="font-playfair text-3xl font-bold text-charcoal mb-8">Featured Post</h2>
       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
         <div className="grid md:grid-cols-2 h-full">
-          <div className="h-48 md:h-full">
+          <div className="h-48 md:h-96">
             <img 
               src={post.imageUrl || "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7"} 
               alt={post.title}
