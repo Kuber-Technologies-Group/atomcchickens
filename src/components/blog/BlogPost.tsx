@@ -95,31 +95,40 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
   const handleShare = () => {
     const postSlug = createSlug(post);
     const shareUrl = `${window.location.origin}/blog/${postSlug}`;
-    
+  
+    // Extract a short excerpt from post.content
+    const excerpt = post.content
+      ? post.content.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 150) + "..." // Strips HTML tags and trims content
+      : "Check out this amazing blog post!";
+  
+    const shareMessage = `📖 "${post.title}" – ${excerpt}\n🔗 Read more: ${shareUrl}`;
+  
     if (navigator.share) {
       navigator.share({
         title: post.title,
-        text: `Check out this blog post: ${post.title}`,
+        text: shareMessage,
         url: shareUrl,
       })
         .then(() => toast({
-          title: "Shared successfully",
-          description: "The post has been shared",
+          title: "🎉 Shared Successfully!",
+          description: "Your friends can now check out this awesome post.",
         }))
-        .catch((error) => console.log('Error sharing:', error));
+        .catch((error) => console.error("Error sharing:", error));
     } else {
       navigator.clipboard.writeText(shareUrl)
         .then(() => toast({
-          title: "Link copied",
-          description: "Post URL copied to clipboard",
+          title: "🔗 Link Copied!",
+          description: "Share it with your friends and let them enjoy the read!",
         }))
         .catch(() => toast({
-          title: "Error",
-          description: "Failed to copy link",
+          title: "❌ Oops!",
+          description: "Couldn't copy the link. Try again.",
           variant: "destructive",
         }));
     }
   };
+  
+  
 
   return (
     <Card className="mb-6 overflow-hidden hover:shadow-md transition-shadow duration-300">
