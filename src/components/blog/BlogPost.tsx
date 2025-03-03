@@ -98,10 +98,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
   
     // Extract a short excerpt from post.content
     const excerpt = post.content
-      ? post.content.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 150) + "..." // Strips HTML tags and trims content
+      ? post.content.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 500) + "..." // Strips HTML tags and trims content
       : "Check out this amazing blog post!";
   
-    const shareMessage = `📖 "${post.title}" – ${excerpt}\n🔗 Read more: ${shareUrl}`;
+    const shareMessage = `${post.title}\n – ${excerpt}\n🔗 Read more:`;
   
     if (navigator.share) {
       navigator.share({
