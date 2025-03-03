@@ -86,10 +86,10 @@ const Contact = () => {
                         Email
                       </h3>
                       <a
-                        href="mailto:info@atomcchickens.com"
+                        href="mailto:atomc.chickens@gmail.com"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
-                        info@atomcchickens.com
+                        atomc.chickens@gmail.com
                       </a>
                     </div>
                   </div>
@@ -115,10 +115,10 @@ const Contact = () => {
                         +263 779 146 262
                       </a> <br />
                       <a
-                        href="tel:+2630292250443"
+                        href="tel:+263292250443"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
-                       +263 029 225 0443
+                       +263 29 225 0443
                       </a>
                     </div>
                   </div>
