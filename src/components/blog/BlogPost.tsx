@@ -2,12 +2,13 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Pencil, Trash2, ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
+import { Pencil, Trash2, ThumbsUp, ThumbsDown, MessageSquare, Share2 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { db } from "@/lib/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 import { useToast } from "@/components/ui/use-toast";
 import { formatDistanceToNow } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 interface BlogPostProps {
   post: {
@@ -25,9 +26,29 @@ interface BlogPostProps {
   onEdit: (post: any) => void;
 }
 
+// Helper function to create slug from post data (duplicate here for component use)
+const createSlug = (post: any) => {
+  let date = "unknown-date";
+  
+  if (post.createdAt?.seconds) {
+    const postDate = new Date(post.createdAt.seconds * 1000);
+    date = postDate.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+  }
+  
+  // Clean title for URL (lowercase, remove special chars, replace spaces with hyphens)
+  const titleSlug = post.title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-');
+  
+  // Add post ID at the end to ensure uniqueness
+  return `${date}-${titleSlug}-${post.id}`;
+};
+
 const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
   const { currentUser } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const isAuthor = currentUser?.uid === post.authorId;
   
   const timeAgo = post.createdAt?.seconds
@@ -45,6 +66,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
         title: "Post deleted",
         description: "The post has been deleted successfully",
       });
+      // Navigate back to blog listing after deletion
+      navigate("/blog");
     } catch (error) {
       console.error("Error deleting post:", error);
       toast({
@@ -67,6 +90,35 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
       title: "Thanks for your reaction!",
       description: "Your dislike has been recorded.",
     });
+  };
+
+  const handleShare = () => {
+    const postSlug = createSlug(post);
+    const shareUrl = `${window.location.origin}/blog/${postSlug}`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: post.title,
+        text: `Check out this blog post: ${post.title}`,
+        url: shareUrl,
+      })
+        .then(() => toast({
+          title: "Shared successfully",
+          description: "The post has been shared",
+        }))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+      navigator.clipboard.writeText(shareUrl)
+        .then(() => toast({
+          title: "Link copied",
+          description: "Post URL copied to clipboard",
+        }))
+        .catch(() => toast({
+          title: "Error",
+          description: "Failed to copy link",
+          variant: "destructive",
+        }));
+    }
   };
 
   return (
@@ -121,6 +173,15 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onEdit }) => {
             >
               <MessageSquare className="w-4 h-4" />
               {post.comments?.length || 0}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={handleShare}
+              className="flex items-center gap-2"
+              size="sm"
+            >
+              <Share2 className="w-4 h-4" />
+              Share
             </Button>
           </div>
           

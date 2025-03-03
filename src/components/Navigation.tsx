@@ -1,11 +1,17 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Menu, X, LogIn } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAuthForm, setShowAuthForm] = useState(false);
+  const { currentUser } = useAuth();
+  const location = useLocation();
+  const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +21,17 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleOpenAuthForm = () => {
+    // Just set a flag in URL that Blog.tsx will read
+    if (location.pathname === "/blog") {
+      window.history.pushState({}, "", "/blog?login=true");
+      window.dispatchEvent(new Event('popstate'));
+    } else {
+      // If we're on a blog post page, redirect to main blog with login flag
+      window.location.href = "/blog?login=true";
+    }
+  };
 
   const navLinks = [
     { name: "Breeds", href: "/breeds" },
@@ -55,6 +72,17 @@ const Navigation = () => {
                 </a>
               )
             ))}
+            {/* Login Button - Only show on blog page when not logged in */}
+            {isBlogPage && !currentUser && (
+              <Button 
+                onClick={handleOpenAuthForm}
+                className="bg-warmBrown hover:bg-warmBrown/90 text-white"
+                size="sm"
+              >
+                <LogIn className="h-4 w-4 mr-2" />
+                Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,6 +121,17 @@ const Navigation = () => {
                   </a>
                 )
               ))}
+              {/* Login Button - Only show on blog page when not logged in */}
+              {isBlogPage && !currentUser && (
+                <Button 
+                  onClick={handleOpenAuthForm}
+                  className="w-full bg-warmBrown hover:bg-warmBrown/90 text-white mt-2"
+                  size="sm"
+                >
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              )}
             </div>
           </div>
         )}

@@ -1,7 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoginForm, SignupForm } from "@/components/blog/AuthForms";
 import { useAuth } from "@/contexts/AuthContext";
 import { X } from "lucide-react";
@@ -11,13 +11,18 @@ const Footer = () => {
   const [isLogin, setIsLogin] = useState(true);
   const { currentUser } = useAuth();
   const location = useLocation();
-  const isBlogPage = location.pathname === "/blog";
-
-  const handleOpenAuthForm = () => {
-    setShowAuthForm(true);
-    setIsLogin(true);
-  };
-
+  
+  // Handle login parameter in URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const loginParam = urlParams.get('login');
+    
+    if (loginParam === 'true' && !currentUser) {
+      setShowAuthForm(true);
+      setIsLogin(true);
+    }
+  }, [location.search, currentUser]);
+  
   return (
     <>
       <footer className="bg-charcoal text-white py-16">
@@ -28,14 +33,6 @@ const Footer = () => {
               <p className="text-white/80 font-inter">
                 Premier exotic poultry breeding and services
               </p>
-              {!currentUser && isBlogPage && (
-                <Button 
-                  onClick={handleOpenAuthForm}
-                  className="mt-4 bg-warmBrown hover:bg-warmBrown/90 text-white"
-                >
-                  Login
-                </Button>
-              )}
             </div>
             <div>
               <h4 className="font-playfair text-lg font-bold mb-4">Quick Links</h4>
@@ -78,7 +75,13 @@ const Footer = () => {
             <Button 
               variant="ghost" 
               className="absolute top-2 right-2"
-              onClick={() => setShowAuthForm(false)}
+              onClick={() => {
+                setShowAuthForm(false);
+                // Clean up URL if we opened via URL parameter
+                if (location.search.includes('login=true')) {
+                  window.history.pushState({}, "", location.pathname);
+                }
+              }}
             >
               <X className="h-4 w-4" />
             </Button>
