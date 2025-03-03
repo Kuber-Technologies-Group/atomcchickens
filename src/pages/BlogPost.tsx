@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -9,8 +8,7 @@ import BlogPostComponent from "@/components/blog/BlogPost";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useToast } from "@/components/ui/use-toast";
-import BlogPostForm from "@/components/blog/BlogPostForm";
-import { X } from "lucide-react";
+import BlogFormModal from "@/components/blog/BlogFormModal";
 
 const BlogPost = () => {
   const [post, setPost] = useState<any | null>(null);
@@ -26,9 +24,7 @@ const BlogPost = () => {
     const fetchPost = async () => {
       setLoading(true);
       try {
-        // Decode the slug back to a post ID
         const decodedSlug = decodeURIComponent(slug || "");
-        // Try to extract post ID from the slug format "YYYY-MM-DD-title-{id}"
         const postId = decodedSlug.split("-").pop();
         
         if (!postId) {
@@ -120,25 +116,11 @@ const BlogPost = () => {
         </div>
       </div>
 
-      {/* Post Form Modal */}
-      {showPostForm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-3xl w-full p-6 relative">
-            <Button 
-              variant="ghost" 
-              className="absolute top-2 right-2"
-              onClick={handleCloseForm}
-            >
-              <X className="h-4 w-4" />
-            </Button>
-            <BlogPostForm 
-              editMode={!!editingPost} 
-              post={editingPost}
-              onClose={handleCloseForm}
-            />
-          </div>
-        </div>
-      )}
+      <BlogFormModal 
+        showPostForm={showPostForm}
+        editingPost={editingPost}
+        onClose={handleCloseForm}
+      />
 
       <Footer />
     </div>
