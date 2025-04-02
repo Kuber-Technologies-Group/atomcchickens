@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, LogIn, LogOut, User } from 'lucide-react';
+import { Menu, X, LogIn, LogOut, User, Images } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
@@ -54,7 +54,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Breeds", href: "/breeds" },
-    { name: "Gallery", href: "/gallery" },
+    { name: "Gallery", href: "/gallery", icon: <Images className="h-4 w-4 mr-1 inline" /> },
     { name: "Services", href: "/services" },
     { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
