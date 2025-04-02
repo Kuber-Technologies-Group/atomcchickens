@@ -54,6 +54,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Breeds", href: "/breeds" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Services", href: "/services" },
     { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
