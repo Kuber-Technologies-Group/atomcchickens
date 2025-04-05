@@ -55,10 +55,11 @@ const Footer = () => {
             <div>
               <h4 className="font-playfair text-lg font-bold mb-4">Contact</h4>
               <ul className="space-y-2 font-inter">
-                <li className="text-white/80">Email: info@atomicchickens.com</li>
-                <li className="text-white/80">Phone: (555) 123-4567</li>
-                <li className="text-white/80">Address: 123 Farm Road</li>
-                <li className="text-white/80">City, State 12345</li>
+                <li className="text-white/80">Email: atomc.chickens@gmail.com</li>
+                <li className="text-white/80">Phone: +263 772 664 960</li>
+                <li className="text-white/80">Phone: +263 779 146 262</li>
+                <li className="text-white/80">Address: 3 Joubert Avenue</li>
+                <li className="text-white/80">Bulawayo, Zimbabwe</li>
               </ul>
             </div>
           </div>

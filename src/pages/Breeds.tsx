@@ -2,6 +2,8 @@ import Navigation from "@/components/Navigation";
 import BreedCard from "@/components/BreedCard";
 import Footer from "@/components/Footer";
 
+// TODO: Add Rhode Island Red breed
+// TODO: Add a Breeds View To Display Breed's Information
 const breeds = [
   {
     name: "Orpingtons",
