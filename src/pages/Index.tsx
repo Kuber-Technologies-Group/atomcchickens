@@ -136,21 +136,21 @@ const Index = () => {
                 />
               </div>
               <CardContent className="p-6">
-                <h3 className="font-playfair text-xl font-bold text-charcoal mb-2">Columbian Brahmas</h3>
+                <h3 className="font-playfair text-xl font-bold text-charcoal mb-2">Brahmas</h3>
                 <p className="text-charcoal/80 mb-4">Majestic and imposing gentle giants</p>
               </CardContent>
             </Card>
             <Card className="overflow-hidden hover:shadow-lg transition-all">
               <div className="h-48">
                 <img 
-                  src="https://cdn.pixabay.com/photo/2017/09/08/19/57/hen-2729941_1280.jpg"
-                  alt="Sussex"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwsAvfyxiy5IsYHXMR25bl1IV384AOLWPZXA&s"
+                  alt="Australorps"
                   className="w-full h-full object-cover"
                 />
               </div>
               <CardContent className="p-6">
-                <h3 className="font-playfair text-xl font-bold text-charcoal mb-2">Sussex</h3>
-                <p className="text-charcoal/80 mb-4">Perfect dual-purpose birds for small homesteads</p>
+                <h3 className="font-playfair text-xl font-bold text-charcoal mb-2">Australorps</h3>
+                <p className="text-charcoal/80 mb-4">Renowned for their prolific egg production and friendly nature, Black Australorps are a favorite among backyard chicken keepers.</p>
               </CardContent>
             </Card>
           </div>

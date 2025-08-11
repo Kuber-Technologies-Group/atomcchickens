@@ -12,7 +12,7 @@ const breeds = [
     traits: ["Gentle", "Good Layers", "Family Friendly"]
   },
   {
-    name: "Columbian Brahmas",
+    name: "Brahmas",
     description: "Majestic and imposing, Columbian Brahmas are gentle giants that make excellent winter layers and stunning show birds.",
     imageUrl: "https://cdn.pixabay.com/photo/2019/03/10/17/38/hen-brahma-4046755_1280.jpg",
     traits: ["Winter Hardy", "Show Quality", "Docile"]
@@ -20,14 +20,8 @@ const breeds = [
   {
     name: "Frizzle Orpingtons",
     description: "These unique birds feature distinctively curled feathers, combining the beloved Orpington temperament with extraordinary appearance.",
-    imageUrl: "https://i.pinimg.com/originals/03/98/c3/0398c35374fc06eded890813f4d69d1a.jpg",
+    imageUrl: "/img/IMG_0304.jpg",
     traits: ["Unique Appearance", "Friendly", "Hardy"]
-  },
-  {
-    name: "Plymouth Rocks",
-    description: "A heritage breed known for their striking barred pattern and excellent dual-purpose characteristics.",
-    imageUrl: "https://nutrenaworld.com/wp-content/uploads/2024/01/poultry_blog_barred-plymouth-rock-chicken_820x525.jpg",
-    traits: ["Dual Purpose", "Easy Care", "Good Foragers"]
   },
   {
     name: "Wyandottes",
@@ -36,10 +30,16 @@ const breeds = [
     traits: ["Beautiful Plumage", "Good Mothers", "Winter Hardy"]
   },
   {
-    name: "Sussex",
-    description: "Calm and friendly birds that excel at both egg laying and meat production, perfect for small homesteads.",
-    imageUrl: "https://cdn.pixabay.com/photo/2017/09/08/19/57/hen-2729941_1280.jpg",
-    traits: ["Dual Purpose", "Friendly", "Good Layers"]
+    name: "Rhode Island Reds",
+    description: "Hardy and resilient, Rhode Island Reds are known for their prolific egg-laying and adaptability to various climates.",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdO039C1LwDok-EzjAKIbt8rP4JE3jtFboZWG3wbsdxi-GUarXVC2B1wJAPm-DKuHoFo&usqp=CAU",
+    traits: ["Dual Purpose", "Easy Care", "Good Foragers"]
+  },
+  {
+    name: "Australorps",
+    description: "Renowned for their prolific egg production and friendly nature, Black Australorps are a favorite among backyard chicken keepers.",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwsAvfyxiy5IsYHXMR25bl1IV384AOLWPZXA&s",
+    traits: ["Prolific Layers", "Friendly", "Adaptable"]
   }
 ];
 
