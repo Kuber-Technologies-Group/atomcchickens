@@ -19,7 +19,7 @@ const GalleryGrid = ({ galleryData, isLoading }: GalleryGridProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center py-20">
           <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-          <p className="mt-4 text-charcoal/70 font-inter">Loading gallery...</p>
+          <p className="mt-4 text-charcoal/70 font-inter">Gallery Comming Soon...</p>
         </div>
       </div>
     );

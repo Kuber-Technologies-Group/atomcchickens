@@ -68,7 +68,12 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="font-playfair text-2xl font-bold text-primary">
-              AtomcChickens
+              Atomc Chickens
+              {/* <img 
+                  src="/Atomc Chickens Logo @250.png"
+                  alt="Australorps"
+                  className="w-full h-full object-cover"
+                /> */}
             </Link>
           </div>
 

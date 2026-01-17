@@ -18,9 +18,9 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <div className="font-playfair text-sm font-semibold text-warmBrown mb-2">ABOUT US</div>
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-6">Pioneering Indigenous Poultry Breeding</h2>
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-6">Premier Exotic Poultry Breeding</h2>
               <p className="text-lg text-charcoal/80 mb-6 font-inter">
-                AtomC_hickens is a premier Indigenous Poultry Company based in Bulawayo, Zimbabwe, 
+                Atomc Chickens is a premier Indigenous Poultry Company based in Bulawayo, Zimbabwe, 
                 specializing in the breeding and supply of exceptional roadrunner chickens since 2014.
               </p>
               <p className="text-lg text-charcoal/80 mb-8 font-inter">
