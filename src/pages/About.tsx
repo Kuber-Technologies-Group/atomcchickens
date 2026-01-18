@@ -17,7 +17,40 @@ const About = () => {
           <div className="text-center">
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-6">Our Story</h1>
             <p className="text-lg text-charcoal/80 max-w-2xl mx-auto font-inter">
-              Established in 2014 - Pioneering Indigenous Poultry Breeding in Zimbabwe. A trusted name in purpose-driven poultry breeding, committed to sustainability, farmer empowerment, and breeding excellence.
+
+
+              <p className="mb-4">
+                Pioneering Indigenous Poultry Breeding in Zimbabwe Since 2014
+              </p>
+
+              <p>
+                Founded in 2014, Atomc Chickens began with a deeply personal turning point. A routine medical check-up brought an unexpected warning of <b>high cholesterol</b> and, with it, medical advice to adopt a healthier lifestyle and diet. This moment sparked a journey toward healthier, natural food choices, leading to the discovery of the benefits of free-range, naturally raised chicken.
+                What started as a personal commitment to healthy eating soon grew into a passion for rearing road runner and exotic chickens using organic and sustainable methods.
+              </p>
+
+              <p>
+
+                Recognizing the need for quality, naturally raised poultry in Zimbabwe, Atomc Chickens was born, driven by purpose, health, and a desire to raise the standard of indigenous poultry breeding.
+                Rooted in organic and sustainable farming principles, we remain committed to breeding healthy, resilient birds that excel in show, meat, and egg production.
+              </p>
+              Through careful genetic selection, natural rearing practices, and strict biosecurity, our birds have consistently met high standards, earning recognition, including exotic championship success at the Zimbabwe International Trade Fair (ZITF). Our chickens collected various awards ranging from 1st prizes to 3rd prizes in different categories with our Buff Orpington Hen being judged the Exotic Champion Hen for 2024, our Rhode Island Red pair were judged the Exotic Reserve Champion Rooster, and Exotic Reserve Champion Hen for 2024 respectively; Our Light Brahma pair was judged the Exotic Champion Rooster and Exotic Champion Hen for 2025 respectively and our Buff Orpingtons Hen judged the Exotic Reserve Champion Hen for 2025.
+
+              <p>
+
+                As an indigenous Zimbabwean enterprise, we take pride in empowering farmers, backyard keepers, and poultry enthusiasts with quality birds and expert guidance, helping them build sustainable and profitable poultry ventures.
+
+              </p>
+
+              <p>
+
+                Our journey continues with a clear vision: to lead with excellence, steward our birds responsibly, and deliver value with every chick we raise.
+
+              </p>
+
+              <p className="mt-6  text-lg">
+                Atomc Chickens - <span className="font-bold italic text-charcoal">Hatched with Purpose. Breeding Excellence, One Chick at a Time.</span>
+
+              </p>
             </p>
           </div>
         </div>
@@ -182,14 +215,14 @@ const About = () => {
                   <p className="text-charcoal/80 mb-4">Every chick is hatched with intention, raised with care, and bred to meet high standards of quality and consistency, reflecting our commitment to excellence and stewardship. Our breeds have consistently fared well at the Zimbabwe International Trade Fair (ZITF), producing exotic championship birds, showcasing the superior genetics and careful breeding that define Atomc Chickens.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="overflow-hidden hover:shadow-lg transition-all">
                 <CardContent className="p-6">
                   <h3 className="font-playfair text-xl font-bold text-charcoal mb-2">Suitable for All Levels</h3>
                   <p className="text-charcoal/80 mb-4">Whether you are a beginner, backyard keeper, show breeder, or commercial farmer, our birds are bred to perform and adapt.</p>
                 </CardContent>
               </Card>
-              
+
             </div>
 
           </div>

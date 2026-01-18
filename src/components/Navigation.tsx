@@ -69,11 +69,11 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="font-playfair text-2xl font-bold text-primary">
               Atomc Chickens
-              {/* <img 
-                  src="/Atomc Chickens Logo @250.png"
+              <img 
+                  src="/img/Atomc Kenge.png"
                   alt="Australorps"
-                  className="w-full h-full object-cover"
-                /> */}
+                  className="w-auto h-9 md:h-lg inline-block ml-2"
+                />
             </Link>
           </div>
 
