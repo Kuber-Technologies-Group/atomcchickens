@@ -117,8 +117,8 @@ const About = () => {
             <div className=" overflow-hidden">
               <img
                 src="/Atomc Chickens Logo @1115 Transparent.png"
-                alt="AtomC_hickens farm"
-                className="w-full h-auto object-cover "
+                alt="Atomc Chickens Farm"
+                className="w-full h-auto object-cover mx-auto max-w-sm"
               />
             </div>
             <h2 className="font-playfair text-4xl font-bold text-charcoal mb-6">Our Promise</h2>
