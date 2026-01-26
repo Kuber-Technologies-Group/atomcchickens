@@ -23,7 +23,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (isSubmitting) return;
     setIsSubmitting(true);
 
@@ -37,13 +37,13 @@ Message: ${formData.message.trim()}`;
 
     // Randomly select one of the two numbers (50/50)
     const selectedNumber = WHATSAPP_NUMBERS[Math.floor(Math.random() * 2)];
-    
+
     // Remove the + for wa.me URL
     const numberForUrl = selectedNumber.replace("+", "");
-    
+
     // URL encode the message
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    
+
     // Construct WhatsApp URL
     const whatsappUrl = `https://wa.me/${numberForUrl}?text=${encodedMessage}`;
 
@@ -54,10 +54,10 @@ Message: ${formData.message.trim()}`;
 
     // Reset form
     setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
-    
+
     // Redirect to WhatsApp
     window.open(whatsappUrl, "_blank");
-    
+
     setIsSubmitting(false);
   };
 
@@ -120,10 +120,10 @@ Message: ${formData.message.trim()}`;
                         Email
                       </h3>
                       <a
-                        href="mailto:atomc.chickens@gmail.com"
+                        href="mailto:sales@atomcchickens.co.zw"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
-                        atomc.chickens@gmail.com
+                        sales@atomcchickens.co.zw
                       </a>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ Message: ${formData.message.trim()}`;
                         href="tel:+263292250443"
                         className="text-charcoal/80 hover:text-charcoal font-inter"
                       >
-                       +263 29 225 0443
+                        +263 29 225 0443
                       </a>
                     </div>
                   </div>
