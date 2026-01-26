@@ -118,7 +118,7 @@ const About = () => {
               <img
                 src="/Atomc Chickens Logo @1115 Transparent.png"
                 alt="Atomc Chickens Farm"
-                className="w-full h-auto object-cover mx-auto max-w-sm"
+                className="w-full h-auto object-cover"
               />
             </div>
             <h2 className="font-playfair text-4xl font-bold text-charcoal mb-6">Our Promise</h2>
