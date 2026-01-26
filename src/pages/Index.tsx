@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Egg, Book, Dna, MessageSquare, Heart, Star, Images } from "lucide-react";
+import { Egg, Book, Dna, MessageSquare, Heart, Star } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -158,58 +158,6 @@ const Index = () => {
             <Link to="/breeds">
               <Button className="bg-warmBrown hover:bg-warmBrown/90 text-white">
                 View All Breeds
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Preview Section */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Images className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h2 className="font-playfair text-4xl font-bold text-charcoal mb-6">Chicken Gallery</h2>
-            <p className="text-lg text-charcoal/80 max-w-2xl mx-auto font-inter mb-8">
-              Explore our beautiful collection of chicken breeds in our photo gallery.
-              Discover the unique characteristics and beauty of each breed.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="overflow-hidden hover:shadow-lg transition-all">
-              <div className="h-48">
-                <img 
-                  src="https://cdn.pixabay.com/photo/2016/11/29/05/25/chicken-1867521_1280.jpg"
-                  alt="Orpingtons"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Card>
-            <Card className="overflow-hidden hover:shadow-lg transition-all">
-              <div className="h-48">
-                <img 
-                  src="https://cdn.pixabay.com/photo/2019/03/10/17/38/hen-brahma-4046755_1280.jpg"
-                  alt="Columbian Brahmas"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Card>
-            <Card className="overflow-hidden hover:shadow-lg transition-all">
-              <div className="h-48">
-                <img 
-                  src="https://cdn.pixabay.com/photo/2017/09/08/19/57/hen-2729941_1280.jpg"
-                  alt="Sussex"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Card>
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/gallery">
-              <Button className="bg-warmBrown hover:bg-warmBrown/90 text-white">
-                <Images className="mr-2 h-4 w-4" />
-                View Full Gallery
               </Button>
             </Link>
           </div>
