@@ -8,10 +8,14 @@ import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import Footer from "@/components/Footer";
 
+const WHATSAPP_NUMBERS = ["+263772664960", "+263779146262"];
+
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     subject: "",
     message: "",
@@ -19,12 +23,42 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
+    
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    // Construct the WhatsApp message
+    const whatsappMessage = `New Contact Form Submission
+Name: ${formData.name.trim()}
+Phone: ${formData.phone.trim()}
+Email: ${formData.email.trim()}
+Subject: ${formData.subject.trim()}
+Message: ${formData.message.trim()}`;
+
+    // Randomly select one of the two numbers (50/50)
+    const selectedNumber = WHATSAPP_NUMBERS[Math.floor(Math.random() * 2)];
+    
+    // Remove the + for wa.me URL
+    const numberForUrl = selectedNumber.replace("+", "");
+    
+    // URL encode the message
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Construct WhatsApp URL
+    const whatsappUrl = `https://wa.me/${numberForUrl}?text=${encodedMessage}`;
+
     toast({
-      title: "Message Sent",
-      description: "Thank you for your message. We'll get back to you soon!",
+      title: "Redirecting to WhatsApp",
+      description: "You'll be redirected to send your message via WhatsApp.",
     });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    // Reset form
+    setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+    
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, "_blank");
+    
+    setIsSubmitting(false);
   };
 
   const handleChange = (
@@ -145,6 +179,17 @@ const Contact = () => {
                 </div>
                 <div>
                   <Input
+                    type="tel"
+                    placeholder="Your Phone Number"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="bg-white"
+                  />
+                </div>
+                <div>
+                  <Input
                     type="email"
                     placeholder="Your Email"
                     name="email"
@@ -176,10 +221,11 @@ const Contact = () => {
                 </div>
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-warmBrown hover:bg-warmBrown/90 text-white font-inter"
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send via WhatsApp"}
                 </Button>
               </form>
             </div>
