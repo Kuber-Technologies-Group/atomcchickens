@@ -14,7 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chicken_breeds: {
+        Row: {
+          appearance: string | null
+          availability: string | null
+          availability_notes: string | null
+          broodiness: string | null
+          category: string | null
+          climate_adaptability: string | null
+          created_at: string | null
+          description: string | null
+          egg_color: string | null
+          egg_size: string | null
+          eggs_per_year: string | null
+          excerpt: string | null
+          hen_weight_kg: string | null
+          id: string
+          image_url: string | null
+          introduced_year: number | null
+          laying_notes: string | null
+          name: string
+          origin: string | null
+          rooster_weight_kg: string | null
+          slug: string
+          temperament: string | null
+          traits: string[] | null
+        }
+        Insert: {
+          appearance?: string | null
+          availability?: string | null
+          availability_notes?: string | null
+          broodiness?: string | null
+          category?: string | null
+          climate_adaptability?: string | null
+          created_at?: string | null
+          description?: string | null
+          egg_color?: string | null
+          egg_size?: string | null
+          eggs_per_year?: string | null
+          excerpt?: string | null
+          hen_weight_kg?: string | null
+          id?: string
+          image_url?: string | null
+          introduced_year?: number | null
+          laying_notes?: string | null
+          name: string
+          origin?: string | null
+          rooster_weight_kg?: string | null
+          slug: string
+          temperament?: string | null
+          traits?: string[] | null
+        }
+        Update: {
+          appearance?: string | null
+          availability?: string | null
+          availability_notes?: string | null
+          broodiness?: string | null
+          category?: string | null
+          climate_adaptability?: string | null
+          created_at?: string | null
+          description?: string | null
+          egg_color?: string | null
+          egg_size?: string | null
+          eggs_per_year?: string | null
+          excerpt?: string | null
+          hen_weight_kg?: string | null
+          id?: string
+          image_url?: string | null
+          introduced_year?: number | null
+          laying_notes?: string | null
+          name?: string
+          origin?: string | null
+          rooster_weight_kg?: string | null
+          slug?: string
+          temperament?: string | null
+          traits?: string[] | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
