@@ -14,6 +14,83 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_comments: {
+        Row: {
+          author_name: string
+          content: string
+          created_at: string
+          id: string
+          post_id: string
+        }
+        Insert: {
+          author_name: string
+          content: string
+          created_at?: string
+          id?: string
+          post_id: string
+        }
+        Update: {
+          author_name?: string
+          content?: string
+          created_at?: string
+          id?: string
+          post_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_comments_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      blog_posts: {
+        Row: {
+          author_name: string
+          content: string
+          created_at: string
+          dislikes: number
+          excerpt: string | null
+          id: string
+          image_url: string | null
+          is_featured: boolean
+          likes: number
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_name?: string
+          content: string
+          created_at?: string
+          dislikes?: number
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean
+          likes?: number
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_name?: string
+          content?: string
+          created_at?: string
+          dislikes?: number
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean
+          likes?: number
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       chicken_breeds: {
         Row: {
           appearance: string | null
