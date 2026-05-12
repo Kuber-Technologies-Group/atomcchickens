@@ -1,58 +1,55 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import { useToast } from "@/components/ui/use-toast";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 import BlogHeader from "@/components/blog/BlogHeader";
+import SEO from "@/components/SEO";
 import BlogGrid from "@/components/blog/BlogGrid";
 import BlogFormModal from "@/components/blog/BlogFormModal";
 import { createSlug } from "@/utils/blogUtils";
+import type { BlogPost } from "@/types/blog";
 
 const Blog = () => {
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [showPostForm, setShowPostForm] = useState(false);
-  const [editingPost, setEditingPost] = useState<any | null>(null);
+  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const { currentUser } = useAuth();
+  const { isAdmin } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Fetch posts from Firestore
-  useEffect(() => {
-    try {
-      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
-      
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const fetchedPosts = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setPosts(fetchedPosts);
-        setLoading(false);
-      }, (error) => {
-        console.error("Error fetching posts:", error);
-        toast({
-          title: "Error",
-          description: "Failed to load blog posts",
-          variant: "destructive",
-        });
-        setLoading(false);
-      });
-      
-      return () => unsubscribe();
-    } catch (error) {
-      console.error("Error setting up posts listener:", error);
-      setLoading(false);
+  const fetchPosts = useCallback(async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from("blog_posts")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      toast({ title: "Error", description: "Failed to load posts.", variant: "destructive" });
+    } else {
+      setPosts(data as BlogPost[]);
     }
+    setLoading(false);
   }, [toast]);
 
-  const handleEdit = (post: any) => {
-    setEditingPost(post);
-    setShowPostForm(true);
+  useEffect(() => {
+    fetchPosts();
+
+    // Real-time subscription
+    const channel = supabase
+      .channel("blog_posts_changes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "blog_posts" }, fetchPosts)
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, [fetchPosts]);
+
+  const handleReadMore = (post: BlogPost) => {
+    navigate(`/blog/${createSlug(post.title, post.id)}`);
   };
 
   const handleCloseForm = () => {
@@ -60,26 +57,27 @@ const Blog = () => {
     setEditingPost(null);
   };
 
-  const handleReadMore = (post: any) => {
-    const slug = createSlug(post);
-    navigate(`/blog/${slug}`);
-  };
-
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        url="/blog"
+        title="Blog — Poultry Farming Insights"
+        description="Expert articles on exotic chicken breeds, poultry farming tips, breed comparisons, and farming insights from the team at Atomc Chickens, Bulawayo Zimbabwe."
+      />
       <Navigation />
       <BlogHeader />
-      <BlogGrid 
+      <BlogGrid
         posts={posts}
         loading={loading}
-        currentUser={currentUser}
+        isAdmin={isAdmin}
         onShowPostForm={() => setShowPostForm(true)}
         onReadMore={handleReadMore}
       />
-      <BlogFormModal 
+      <BlogFormModal
         showPostForm={showPostForm}
         editingPost={editingPost}
         onClose={handleCloseForm}
+        onSaved={fetchPosts}
       />
       <Footer />
     </div>

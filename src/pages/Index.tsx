@@ -5,10 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Egg, Book, Dna, MessageSquare, Heart, Star } from "lucide-react";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        url="/"
+        title="Premier Exotic Poultry Breeders, Zimbabwe"
+        description="Atomc Chickens — Zimbabwe's premier exotic poultry breeders. ZITF champions 2024 & 2025. We supply quality roadrunner chickens, incubation and brooding services from Bulawayo."
+      />
       <Navigation />
       <Hero />
 

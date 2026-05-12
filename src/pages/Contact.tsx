@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const WHATSAPP_NUMBERS = ["+263772664960", "+263779146262"];
 
@@ -70,6 +71,11 @@ Message: ${formData.message.trim()}`;
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        url="/contact"
+        title="Contact Us"
+        description="Get in touch with Atomc Chickens. Buy exotic chicken breeds, book incubation or brooding services, or request a consultation. Call or WhatsApp us from Bulawayo, Zimbabwe."
+      />
       <Navigation />
 
       {/* Hero Section */}

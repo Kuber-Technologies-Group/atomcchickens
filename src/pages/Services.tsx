@@ -4,6 +4,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Egg, Sprout, Dna, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const services = [
   {
@@ -55,6 +56,11 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        url="/services"
+        title="Our Services"
+        description="Atomc Chickens offers professional incubation, brooding, breeding programs and poultry consultation services in Bulawayo, Zimbabwe. Contact us to get started."
+      />
       <Navigation />
       
       {/* Hero Section */}

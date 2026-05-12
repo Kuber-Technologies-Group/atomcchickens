@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Egg, Book, Dna, MessageSquare, Heart, Star, Images } from "lucide-react";
@@ -8,6 +9,11 @@ import { Egg, Book, Dna, MessageSquare, Heart, Star, Images } from "lucide-react
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        url="/about"
+        title="About Us"
+        description="Since 2014, Atomc Chickens has been Bulawayo's leading indigenous poultry breeder. ZITF Champion Hen 2024, Champion Rooster 2025. Meet our team and learn our story."
+      />
       <Navigation />
 
       {/* Hero Section */}

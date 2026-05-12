@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import BreedCard from "@/components/BreedCard";
 import Footer from "@/components/Footer";
 import { useBreeds } from "@/hooks/useBreeds";
+import SEO from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const Breeds = () => {
@@ -9,6 +10,11 @@ const Breeds = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        url="/breeds"
+        title="Chicken Breeds"
+        description="Explore our full catalogue of premium exotic chicken breeds at Atomc Chickens. Orpingtons, Brahmas, Australorps, Rhode Island Reds and more — each raised to ZITF championship standards."
+      />
       <Navigation />
       
       {/* Hero Section */}
