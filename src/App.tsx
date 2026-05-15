@@ -16,6 +16,7 @@ import Breeds from "./pages/Breeds";
 import Gallery from "./pages/Gallery";
 import BreedDetail from "./pages/BreedDetail";
 import NotFound from "./pages/NotFound";
+import NoticePopup from "./components/NoticePopup";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <NoticePopup />
           <ScrollToTop />
           <WhatsAppFAB />
           <Routes>
@@ -36,7 +38,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/breeds" element={<Breeds />} />
-          <Route path="/gallery" element={<Gallery />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/breeds/:slug" element={<BreedDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
