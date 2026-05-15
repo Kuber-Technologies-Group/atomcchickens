@@ -5,6 +5,8 @@ export default function NoticePopup() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
+        localStorage.removeItem("notice-popup"); // TEMPORARY: Remove this line after the breeding season notice has been seen by most users
+        
         const hasSeenPopup = localStorage.getItem("notice-popup");
 
         if (!hasSeenPopup) {
