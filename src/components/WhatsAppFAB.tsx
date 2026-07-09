@@ -8,7 +8,7 @@ const WHATSAPP_NUMBERS = ["263772664960", "263779146262"];
 const RANDOM_NUMBER = WHATSAPP_NUMBERS[Math.floor(Math.random() * 2)];
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  `Hello Atomc Chickens! I have a question about your birds.`
+  ``
 );
 const WHATSAPP_URL = `https://wa.me/${RANDOM_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
